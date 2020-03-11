@@ -1,0 +1,3 @@
+Testes de unidade tem como objetivo testar classes ou métodos não expostos para para o end-user, enquanto testes funcionais tem como meta testar features do ponto de vista do end-user da aplicação.
+
+Testes de unidade tem granularidade menor que testes funcionais, enquanto testes de unidade testam uma única classe testes funcionais testam potencialmente o funcionamento conjunto de várias classes/métodos.
