@@ -1,0 +1,2 @@
+O processo descrito na figura ilustra o processo de TDD de testes funcionais, que obedece o ciclo de escrever testes, escrever o codigo em si, e refatorar,  mas que na parte de refatoracao esta aninhado o processo de TDD para testes unitarios.
+
