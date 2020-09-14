@@ -38,6 +38,9 @@ class NewVisitorTest(unittest.TestCase):
         self.assertTrue(
             any(row.text == '1: Estudar testes funcionais' for row in rows)
         )
+
+        self.assertTrue(
+        any(row.text == '1: Estudar testes funcionais' for row in rows), "New to-do item did not appear in table")
         
         # Ainda existe uma caixa de texto convidando para adicionar outro item
         # Ela digita: "Estudar testes de unidade"
