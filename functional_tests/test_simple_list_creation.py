@@ -1,18 +1,6 @@
-from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+from .base import FunctionalTest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from selenium.common.exceptions import WebDriverException
-import time
-
-MAX_WAIT = 5
-
-class FunctionalTest(StaticLiveServerTestCase):
-
-    def setUp(self):
-        self.browser = webdriver.Firefox()
-
-    def tearDown(self):
-        self.browser.quit()
 
 class NewVisitorTest(FunctionalTest):
 
@@ -58,7 +46,6 @@ class NewVisitorTest(FunctionalTest):
 
         # Satisfeita, ela vai dormir
 
-
     def test_multiple_users_can_start_lists_at_different_urls(self):
         # Maria começa uma nova lista
         self.browser.get(self.live_server_url)
@@ -98,34 +85,6 @@ class NewVisitorTest(FunctionalTest):
         self.assertIn('Comprar leite', page_text)
 
         # Satisfeitos, ambos vão dormir
-
-class LayoutAndStylingTest(FunctionalTest):
-
-    def test_layout_and_styling(self):
-        # Edith entra na home page
-        self.browser.get(self.live_server_url)
-        self.browser.set_window_size(1024, 768)
-
-        # Ela nota que o input box está centralizado
-        inputbox = self.browser.find_element_by_id('id_new_item')
-        self.assertAlmostEqual(
-            inputbox.location['x'] + inputbox.size['width'] / 2,
-            512,
-            delta=10
-        )
-
-        # Ela inicia uma nova lista e nota que o input
-        # também está centralizado
-        inputbox.send_keys('testing')
-        inputbox.send_keys(Keys.ENTER)
-        self.wait_for_row_in_list_table('1: testing')
-        inputbox = self.browser.find_element_by_id('id_new_item')
-        self.assertAlmostEqual(
-            inputbox.location['x'] + inputbox.size['width'] / 2,
-            512,
-            delta=10
-        )
-
 
 
 
