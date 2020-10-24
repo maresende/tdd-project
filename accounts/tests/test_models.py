@@ -21,3 +21,4 @@ class TokenModelTest(TestCase):
         token2 = Token.objects.create(email='a@b.com')
         self.assertNotEqual(token1.uid, token2.uid)
 
+
