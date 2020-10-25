@@ -4,6 +4,7 @@ from django.contrib.auth import login as auth_login, logout as auth_logout
 from django.core.mail import send_mail
 from django.shortcuts import redirect, render
 from accounts.models import Token
+from django.contrib import messages
 
 def send_login_email(request):
     email = request.POST['email']
@@ -12,6 +13,10 @@ def send_login_email(request):
         'body text tbc',
         'noreply@superlists',
         [email],
+    )
+    messages.success(
+        request,
+        "Check your email, we've sent you a link you can use to log in."
     )
     return redirect('/')
 
@@ -26,3 +31,5 @@ def login(request):
 def logout(request):
     auth_logout(request)
     return redirect('/')
+
+
