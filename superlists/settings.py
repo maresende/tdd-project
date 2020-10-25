@@ -129,4 +129,9 @@ INSTALLED_APPS = [
     'accounts',	
     'lists',
 ]
+
+
 AUTH_USER_MODEL = 'accounts.User'
+AUTHENTICATION_BACKENDS = [
+    'accounts.authentication.PasswordlessAuthenticationBackend',
+]
