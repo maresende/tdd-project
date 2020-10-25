@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from lists import views as list_views
+from django.contrib.auth.views import logout
 from accounts import views as accounts_views
 
 urlpatterns = [
